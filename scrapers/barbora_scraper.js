@@ -1,5 +1,5 @@
 async function barboraScraper(searchTerms) {
-  console.log(' > Barbora scraper');
+  console.log(' > Barbora scraper function');
 
   //shop URL
   let fetchUrl =
@@ -15,7 +15,7 @@ async function barboraScraper(searchTerms) {
   let fullSearchTerms = searchTerms.join('+');
 
   //combine everything to one string
-  let fullFetchUrl = `${fetchUrl}+${fullSearchTerms}`;
+  let fullFetchUrl = ` >> ${fetchUrl}+${fullSearchTerms}`;
   console.log(`fullFetchUrl- ${fullFetchUrl}`);
 
   const response = await fetch(fullFetchUrl);
@@ -34,8 +34,6 @@ async function barboraScraper(searchTerms) {
 
     returnJson.products.push(pushProduct);
   }
-
-  console.log(' >> ReturnJson: \n', returnJson);
 
   return returnJson;
 }
