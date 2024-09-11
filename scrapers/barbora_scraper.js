@@ -1,5 +1,5 @@
 async function barboraScraper(searchTerms) {
-  console.log('===barbora scraper===');
+  console.log(' > Barbora scraper');
 
   //shop URL
   let fetchUrl =
@@ -21,12 +21,23 @@ async function barboraScraper(searchTerms) {
   const response = await fetch(fullFetchUrl);
   const result = await response.json();
 
+  let returnJson = { products: [] };
+
   for (let product of result.products) {
     console.log('===');
     console.log(`${product.title} kaina ${product.price} eur.`);
+
+    let pushProduct = {
+      name: product.title,
+      price: product.price,
+    };
+
+    returnJson.products.push(pushProduct);
   }
 
-  return result;
+  console.log(' >> ReturnJson: \n', returnJson);
+
+  return returnJson;
 }
 
 module.exports = barboraScraper;

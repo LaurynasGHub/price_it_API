@@ -3,8 +3,9 @@
 // Function searches in a rimi e-shop and returns html file.
 // Html is then manipulated to get the json object.
 //
+
 async function rimiScraper(searchTerms, exportText) {
-  console.log(' > rimi scraper');
+  console.log(' > Rimi scraper');
 
   const fs = require('fs');
   const deleteUpToKeyword = require('../utils/delete_up_to_keyword');
@@ -38,7 +39,7 @@ async function rimiScraper(searchTerms, exportText) {
     const manResult = deleteUpToKeyword(result, 'currencyCode');
 
     // convert the manResulted to JSON file that has the needed structure
-    const rimiJson = convertTextToJson(manResult, '": ');
+    const rimiJson = convertTextToJson(manResult, '": ', 'name');
 
     for (let product of rimiJson.products) {
       console.log('===');
@@ -52,6 +53,9 @@ async function rimiScraper(searchTerms, exportText) {
         JSON.stringify(rimiJson)
       );
     }
+
+    console.log(rimiJson);
+
     return rimiJson;
   } catch (error) {
     console.error('Error:', error);
@@ -61,4 +65,4 @@ async function rimiScraper(searchTerms, exportText) {
 
 module.exports = rimiScraper;
 // Call the function to test
-// rimiScraper(['duona'], false);
+// rimiScraper(['duona'], false, 'name');
