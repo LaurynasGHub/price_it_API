@@ -27,5 +27,6 @@ async function barboraScraper(searchTerms) {
   }
 }
 
-export { barboraScraper };
+module.exports = barboraScraper;
+// export { barboraScraper };
 // barboraScraper(['pienas']);
