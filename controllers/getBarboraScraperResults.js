@@ -6,9 +6,11 @@ const { response } = require('express');
 const barboraScraper = require('../scrapers/barbora_scraper');
 
 async function getBarboraScraperResults(params) {
-  console.log(' >Barbora Scraper');
+  console.log(' > Barbora Scraper Results');
 
-  console.log(params);
+  console.log(` >> Search params- ${params}`);
+
+  const scraperResult = await barboraScraper([params]);
 }
 
 module.exports = getBarboraScraperResults;

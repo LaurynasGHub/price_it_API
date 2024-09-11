@@ -25,6 +25,8 @@ async function barboraScraper(searchTerms) {
     console.log('===');
     console.log(`${product.title} kaina ${product.price} eur.`);
   }
+
+  return result;
 }
 
 module.exports = barboraScraper;

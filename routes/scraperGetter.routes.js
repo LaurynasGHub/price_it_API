@@ -10,13 +10,10 @@ const router = Router();
 // Barbora scraper
 router.get('/barbora', async (req, res) => {
   try {
-    // console.log(req.query);
-
     const searchTerm = req.query.searchTerm; // extract the search term from the query parameters
     if (!searchTerm) {
       return res.status(400).json({ error: 'Search term is required' });
     }
-
     const data = await getBarboraScraperResults(searchTerm);
     res.json(data);
   } catch (error) {
