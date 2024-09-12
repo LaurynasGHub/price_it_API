@@ -4,43 +4,51 @@
  * @returns {JSON}
  */
 
-async function barboraScraper(searchTerm) {
-  console.log(' > Barbora scraper function');
+async function barboraScraper(searchTerms) {
+  console.log(' > Barbora scraper');
 
   //shop URL
   let fetchUrl =
-    // 'https://www.barbora.lt/api/eshop/v1/analyticsearch/query?hideInactiveInventories=true&hideInactiveSuggestions=true&mergeSuggestionsIntoResults=true&mergeSuggestionsIntoResultsOnlyUpToTheLimit=true&limit=5&isQuickSearch=true&query=';
-    // shop url without some options, added is only search terms and limit
-    // TODO
-    // make limit changeable from 5 to input value
-    // change provided values from array to string?
-    // then replace spaces with +?
     'https://www.barbora.lt/api/eshop/v1/analyticsearch/query?&limit=5&query=';
 
   //combine everything to one string
-  let fullFetchUrl = `${fetchUrl}${searchTerm}`;
+  let fullFetchUrl = `${fetchUrl}${searchTerms}`;
   console.log(` >> fullFetchUrl- ${fullFetchUrl}`);
 
-  const response = await fetch(fullFetchUrl);
-  const result = await response.json();
+  try {
+    console.log(' >> Fetching data...');
 
-  let returnJson = { products: [] };
+    const response = await fetch(fullFetchUrl);
 
-  for (let product of result.products) {
-    console.log('===');
-    console.log(`${product.title} kaina ${product.price} eur.`);
+    console.log(' >> Fetch completed!');
 
-    let pushProduct = {
-      name: product.title,
-      price: product.price,
-    };
+    if (!response.ok) {
+      throw new Error(` > HTTP error! Status: ${response.status}`);
+    }
 
-    returnJson.products.push(pushProduct);
+    const result = await response.json();
+
+    let returnJson = { products: [] };
+
+    for (let product of result.products) {
+      console.log('===');
+      console.log(`${product.title} kaina ${product.price} eur.`);
+
+      let pushProduct = {
+        name: product.title,
+        price: product.price,
+      };
+
+      returnJson.products.push(pushProduct);
+    }
+
+    return returnJson;
+  } catch (error) {
+    console.error('Error:', error);
+    return;
   }
-
-  return returnJson;
 }
 
-module.exports = barboraScraper;
+// module.exports = barboraScraper;
 // export { barboraScraper };
-// barboraScraper(['pienas']);
+barboraScraper(['pienas']);

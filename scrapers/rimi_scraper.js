@@ -6,26 +6,20 @@
 
 /**
  *
- * @param {string.<string>} searchTerms array of terms to search, if the search term has multiple words it's better to pass them as an array.
- * @param {boolean} exportText true to write result text to separate .txt file.
+ * @param {string} searchTerms string of what to search, more that one word should be grouped using "+".
  * @returns {JSON}
  */
 
-async function rimiScraper(searchTerms, exportText) {
+async function rimiScraper(searchTerms) {
   console.log(' > Rimi scraper');
 
-  const fs = require('fs');
   const deleteUpToKeyword = require('../utils/delete_up_to_keyword');
   const convertTextToJson = require('../utils/convert_text_to_json');
 
-  // Rimi e-shop URL
   let fetchUrl = 'https://www.rimi.lt/e-parduotuve/lt/paieska?query=';
 
-  // Combine the search terms that are passed as arg
-  let fullSearchTerms = searchTerms.join('+');
-
   // Combine search terms and URL in to one string
-  let fullFetchUrl = `${fetchUrl}${fullSearchTerms}`;
+  let fullFetchUrl = `${fetchUrl}${searchTerms}`;
   console.log(` >> fullFetchUrl: ${fullFetchUrl}`);
 
   try {
@@ -53,14 +47,6 @@ async function rimiScraper(searchTerms, exportText) {
       console.log(`${product.name} \n kaina ${product.price} eur.`);
     }
 
-    // Write the manipulated result into a text file if needed
-    if (exportText) {
-      fs.writeFileSync(
-        `${searchTerms}-rimi-results.txt`,
-        JSON.stringify(rimiJson)
-      );
-    }
-
     return rimiJson;
   } catch (error) {
     console.error('Error:', error);
@@ -68,6 +54,6 @@ async function rimiScraper(searchTerms, exportText) {
   }
 }
 
-module.exports = rimiScraper;
+// module.exports = rimiScraper;
 // Call the function to test
-// rimiScraper(['duona'], false, 'name');
+rimiScraper(['duona']);
