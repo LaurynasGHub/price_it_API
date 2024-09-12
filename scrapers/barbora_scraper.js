@@ -15,8 +15,8 @@ async function barboraScraper(searchTerms) {
   let fullSearchTerms = searchTerms.join('+');
 
   //combine everything to one string
-  let fullFetchUrl = ` >> ${fetchUrl}+${fullSearchTerms}`;
-  console.log(`fullFetchUrl- ${fullFetchUrl}`);
+  let fullFetchUrl = `${fetchUrl}+${fullSearchTerms}`;
+  console.log(` >> fullFetchUrl- ${fullFetchUrl}`);
 
   const response = await fetch(fullFetchUrl);
   const result = await response.json();

@@ -4,6 +4,13 @@
 // Html is then manipulated to get the json object.
 //
 
+/**
+ *
+ * @param {string.<string>} searchTerms array of terms to search, if the search term has multiple words it's better to pass them as an array.
+ * @param {boolean} exportText true to write result text to separate .txt file.
+ * @returns {JSON}
+ */
+
 async function rimiScraper(searchTerms, exportText) {
   console.log(' > Rimi scraper');
 
@@ -53,8 +60,6 @@ async function rimiScraper(searchTerms, exportText) {
         JSON.stringify(rimiJson)
       );
     }
-
-    console.log(rimiJson);
 
     return rimiJson;
   } catch (error) {
