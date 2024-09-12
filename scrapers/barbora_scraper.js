@@ -1,3 +1,8 @@
+/**
+ * Function gets results from Barbora e-shop.
+ * @param {string} searchTerms string of what to search, more that one word should be grouped using "+".
+ * @returns {JSON}
+ */
 async function barboraScraper(searchTerms) {
   console.log(' > Barbora scraper function');
 
