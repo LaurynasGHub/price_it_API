@@ -15,6 +15,7 @@ router.get('/barbora', async (req, res) => {
       return res.status(400).json({ error: 'Search term is required' });
     }
     const data = await getBarboraScraperResults(searchTerm);
+
     res.json(data);
   } catch (error) {
     console.log('Error:', error.message);
@@ -25,7 +26,13 @@ router.get('/barbora', async (req, res) => {
 // Rimi scraper
 router.get('/rimi', async (req, res) => {
   try {
-    const data = await getRimiScraperResults();
+    const searchTerm = req.query.searchTerm; // extract the search term from the query parameters
+    if (!searchTerm) {
+      return res.status(400).json({ error: 'Search term is required' });
+    }
+
+    const data = await getRimiScraperResults(searchTerm);
+
     res.json(data);
   } catch (error) {
     console.log('Error:', error.message);
