@@ -1,12 +1,12 @@
-### PRICE IT API
+# PRICE IT API
 
 ## ROUTES:
 
-# /scrapers/barbora?searchTerm=XX
+### /scrapers/barbora?searchTerm=XX
 
 Calls Barbora scraper using searchTerm value (XX) and returns JSON format file with results.
 
-# /scrapers/rimi?searchTerm=XX
+### /scrapers/rimi?searchTerm=XX
 
 Calls Rimi scraper using searchTerm value (XX) and returns JSON format file with results.
 
