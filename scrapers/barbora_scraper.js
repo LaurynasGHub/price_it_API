@@ -3,7 +3,8 @@
  * @param {string} searchTerms string of what to search, more that one word should be grouped using "+".
  * @returns {JSON}
  */
-async function barboraScraper(searchTerms) {
+
+async function barboraScraper(searchTerm) {
   console.log(' > Barbora scraper function');
 
   //shop URL
@@ -16,11 +17,8 @@ async function barboraScraper(searchTerms) {
     // then replace spaces with +?
     'https://www.barbora.lt/api/eshop/v1/analyticsearch/query?&limit=5&query=';
 
-  //combine the search terms
-  let fullSearchTerms = searchTerms.join('+');
-
   //combine everything to one string
-  let fullFetchUrl = `${fetchUrl}+${fullSearchTerms}`;
+  let fullFetchUrl = `${fetchUrl}${searchTerm}`;
   console.log(` >> fullFetchUrl- ${fullFetchUrl}`);
 
   const response = await fetch(fullFetchUrl);
