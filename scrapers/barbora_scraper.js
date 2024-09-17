@@ -31,9 +31,6 @@ async function barboraScraper(searchTerms) {
     let returnJson = { products: [] };
 
     for (let product of result.products) {
-      console.log('===');
-      console.log(`${product.title} kaina ${product.price} eur.`);
-
       let pushProduct = {
         name: product.title,
         price: product.price,
