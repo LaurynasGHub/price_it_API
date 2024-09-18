@@ -42,10 +42,10 @@ async function rimiScraper(searchTerms) {
     // convert the manResulted to JSON file that has the needed structure
     const rimiJson = convertTextToJson(manResult, '": ', 'name');
 
-    for (let product of rimiJson.products) {
-      console.log('===');
-      console.log(`${product.name} \n kaina ${product.price} eur.`);
-    }
+    // for (let product of rimiJson.products) {
+    //   console.log('===');
+    //   console.log(`${product.name} \n kaina ${product.price} eur.`);
+    // }
 
     return rimiJson;
   } catch (error) {
