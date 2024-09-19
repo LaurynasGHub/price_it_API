@@ -4,16 +4,15 @@
 // Function also converts unicode to lithuanian characters
 //
 /**
- * Converts given text to JSON file format with the structure of 'name' and 'price'. Mainly works for Rimi scraper.
+ * Converts given text to JSON file format with the structure of 'name/title' and 'price'. Mainly works for Rimi scraper.
  * @param {string} sliceWord - represents from which part take the remaining JSON line.
  * @param {string} text - text which to convert to JSON.
  * @param {string} name - 'name' or 'title' - which one is in return JSON.
+ * @param {string} searchString - search query parameters.
  * @returns {JSON}
  */
 
-const removeChars = require('./remove_chars_from_string.js');
-
-function convertTextToJson(text, sliceWord, name) {
+function convertTextToJson(text, sliceWord, name, searchString) {
   const unicodeCharSwitch = require('./unicode_char_switch.js');
   const removeChars = require('./remove_chars_from_string.js');
 
@@ -27,8 +26,20 @@ function convertTextToJson(text, sliceWord, name) {
   let productName = null;
   let productPrice = null;
 
+  const searchWords = searchString.split(' ');
+  // Take that the last word of a string is a brand, make it uppercase
+  // as in results brands are uppercase
+  const brand = searchWords.pop().toUpperCase();
+
+  let counter = 0;
+
   for (let line = 0; line < lines.length; line++) {
-    if (lines[line].includes(name)) {
+    // check counter, if equals 5 - terminate
+    if (counter === 5) {
+      return returnJson;
+    }
+    // check if required line with name/title also contains the needed brand
+    if (lines[line].includes(name) && lines[line].includes(brand)) {
       productName = lines[line]
         .slice(lines[line].indexOf(sliceWord) + sliceWord.length)
         .trim();
@@ -47,6 +58,8 @@ function convertTextToJson(text, sliceWord, name) {
       };
 
       returnJson.products.push(product);
+      // increment the counter
+      counter++;
 
       productName = null;
       productPrice = null;
