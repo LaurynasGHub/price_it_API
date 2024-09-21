@@ -29,7 +29,14 @@ function convertTextToJson(text, sliceWord, name, searchString) {
   const searchWords = searchString.split(' ');
   // Take that the last word of a string is a brand, make it uppercase
   // as in results brands are uppercase
-  const brand = searchWords.pop().toUpperCase();
+  let brand;
+
+  if (searchWords.length < 2) {
+    brand = '';
+    console.log('1 word in searchWord');
+  } else {
+    brand = searchWords.pop().toUpperCase();
+  }
 
   let counter = 0;
 
@@ -38,6 +45,10 @@ function convertTextToJson(text, sliceWord, name, searchString) {
     if (counter === 5) {
       return returnJson;
     }
+    //
+    // TODO
+    // Add checks, if the search terms are only 1 word no need to check for brand
+    //
     // check if required line with name/title also contains the needed brand
     if (lines[line].includes(name) && lines[line].includes(brand)) {
       productName = lines[line]
