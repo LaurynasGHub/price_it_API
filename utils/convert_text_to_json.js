@@ -33,7 +33,6 @@ function convertTextToJson(text, sliceWord, name, searchString) {
 
   if (searchWords.length < 2) {
     brand = '';
-    console.log('1 word in searchWord');
   } else {
     brand = searchWords.pop().toUpperCase();
   }
@@ -45,18 +44,17 @@ function convertTextToJson(text, sliceWord, name, searchString) {
     if (counter === 5) {
       return returnJson;
     }
-    //
-    // TODO
-    // Add checks, if the search terms are only 1 word no need to check for brand
-    //
+
     // check if required line with name/title also contains the needed brand
     if (lines[line].includes(name) && lines[line].includes(brand)) {
       productName = lines[line]
         .slice(lines[line].indexOf(sliceWord) + sliceWord.length)
         .trim();
+
+      priceCheck = true;
     }
 
-    if (lines[line].includes('"price"')) {
+    if (lines[line].includes('"price"') && priceCheck) {
       productPrice = parseFloat(
         lines[line].slice(lines[line].indexOf(sliceWord) + sliceWord.length)
       );
