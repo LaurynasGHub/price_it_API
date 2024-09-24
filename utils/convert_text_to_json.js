@@ -25,6 +25,8 @@ function convertTextToJson(text, sliceWord, name, searchString) {
 
   let productName = null;
   let productPrice = null;
+  // define the return productName
+  let fullProductName = '';
 
   const searchWords = searchString.split(' ');
   // Take that the last word of a string is a brand, make it uppercase
@@ -61,8 +63,13 @@ function convertTextToJson(text, sliceWord, name, searchString) {
     }
 
     if (productName && productPrice) {
+      // gets full product name and removes ""
+      fullProductName = removeChars(productName, ['"']);
+
       let product = {
-        name: removeChars(productName, ['"', ',']),
+        // removes the last character in a string, usually ","
+        // name: fullProductName,
+        name: fullProductName.slice(0, fullProductName.length - 1),
         price: productPrice,
       };
 
