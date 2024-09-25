@@ -17,8 +17,6 @@ async function lastMileScraper(searchTerms) {
   try {
     console.log(' >> Fetching data...');
 
-    // const response = await fetch(fetchUrl);
-
     const response = await fetch(fetchUrl, {
       method: 'POST',
       headers: {
@@ -27,7 +25,7 @@ async function lastMileScraper(searchTerms) {
       body: JSON.stringify({
         limit: 5,
         query: {
-          text: 'duona Toste',
+          text: `${searchTerms}`,
           languageCode: 'en',
         },
         params: {
@@ -44,6 +42,8 @@ async function lastMileScraper(searchTerms) {
         slim: true,
       }),
     });
+
+    console.log(' >> Fetch completed!');
 
     const result = await response.json();
 
