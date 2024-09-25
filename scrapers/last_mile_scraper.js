@@ -4,9 +4,9 @@
  * In product.prc there are several options:
  * p - default price, l - price with iki card
  *
- *  * @param {string} searchTerms string of what to search.
+ * @param {string} searchTerms string of what to search.
+ * @returns {JSON}
  */
-const fs = require('fs');
 
 async function lastMileScraper(searchTerms) {
   console.log(' > Last Mile scraper');
@@ -65,4 +65,5 @@ async function lastMileScraper(searchTerms) {
   }
 }
 
+module.exports = lastMileScraper;
 // lastMileScraper('');

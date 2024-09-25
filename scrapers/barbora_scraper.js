@@ -1,6 +1,7 @@
 /**
  * Function gets results from Barbora e-shop.
  * @param {string} searchTerms string of what to search.
+ * @returns {JSON}
  */
 
 async function barboraScraper(searchTerms) {
