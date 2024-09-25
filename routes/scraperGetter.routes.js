@@ -2,8 +2,9 @@ const { Router } = require('express');
 const {
   getBarboraScraperResults,
   getRimiScraperResults,
+  getLastMileScraperResults,
 } = require('../controllers/index');
-const rimiScraper = require('../scrapers/rimi_scraper');
+// const rimiScraper = require('../scrapers/rimi_scraper');
 
 const router = Router();
 
@@ -20,13 +21,15 @@ router.get('/results', async (req, res) => {
     // Barbora scraper
     const barboraData = await getBarboraScraperResults(searchTerm);
     // Rimi scraper
-    const rimiData = await rimiScraper(searchTerm);
+    const rimiData = await getRimiScraperResults(searchTerm);
+    // Last Mile scraper
+    const lastMileData = await getLastMileScraperResults(searchTerm);
 
-    // const data = res.json(data);
-    // returnJson.barbora.push(barboraData);
     returnJson.barbora = barboraData;
-    // returnJson.rimi.push(rimiData);
+
     returnJson.rimi = rimiData;
+
+    returnJson.lastMile = lastMileData;
 
     res.json(returnJson);
   } catch (error) {
