@@ -16,10 +16,10 @@ async function rimiScraper(searchTerms) {
   const deleteUpToKeyword = require('../utils/delete_up_to_keyword');
   const convertTextToJson = require('../utils/convert_text_to_json');
 
-  let fetchUrl = 'https://www.rimi.lt/e-parduotuve/lt/paieska?query=';
+  const fetchUrl = 'https://www.rimi.lt/e-parduotuve/lt/paieska?query=';
 
   // Combine search terms and URL in to one string
-  let fullFetchUrl = `${fetchUrl}${searchTerms}`;
+  const fullFetchUrl = `${fetchUrl}${searchTerms}`;
   console.log(` >> fullFetchUrl: ${fullFetchUrl}`);
 
   try {
@@ -40,7 +40,12 @@ async function rimiScraper(searchTerms) {
     const manResult = deleteUpToKeyword(result, 'currencyCode');
 
     // convert the manResulted to JSON file that has the needed structure
-    const rimiJson = convertTextToJson(manResult, '": ', 'name');
+    const rimiJson = convertTextToJson(
+      manResult,
+      '": ',
+      'name',
+      searchTerms.toString()
+    );
 
     // for (let product of rimiJson.products) {
     //   console.log('===');

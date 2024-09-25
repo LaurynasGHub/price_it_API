@@ -1,18 +1,17 @@
 /**
  * Function gets results from Barbora e-shop.
- * @param {string} searchTerms string of what to search, more that one word should be grouped using "+".
- * @returns {JSON}
+ * @param {string} searchTerms string of what to search.
  */
 
 async function barboraScraper(searchTerms) {
   console.log(' > Barbora scraper');
 
   //shop URL
-  let fetchUrl =
+  const fetchUrl =
     'https://www.barbora.lt/api/eshop/v1/analyticsearch/query?&limit=5&query=';
 
   //combine everything to one string
-  let fullFetchUrl = `${fetchUrl}${searchTerms}`;
+  const fullFetchUrl = `${fetchUrl}${searchTerms}`;
   console.log(` >> fullFetchUrl- ${fullFetchUrl}`);
 
   try {
