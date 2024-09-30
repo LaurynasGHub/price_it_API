@@ -40,12 +40,7 @@ async function rimiScraper(searchTerms) {
     const manResult = deleteUpToKeyword(result, 'currencyCode');
 
     // convert the manResulted to JSON file that has the needed structure
-    const rimiJson = convertTextToJson(
-      manResult,
-      '": ',
-      'name',
-      searchTerms.toString()
-    );
+    const rimiJson = convertTextToJson(manResult, '": ', 'name');
 
     return rimiJson;
   } catch (error) {

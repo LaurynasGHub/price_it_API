@@ -8,11 +8,10 @@
  * @param {string} sliceWord - represents from which part take the remaining JSON line.
  * @param {string} text - text which to convert to JSON.
  * @param {string} name - 'name' or 'title' - which one is in return JSON.
- * @param {string} searchString - search query parameters.
  * @returns {JSON}
  */
 
-function convertTextToJson(text, sliceWord, name, searchString) {
+function convertTextToJson(text, sliceWord, name) {
   const unicodeCharSwitch = require('./unicode_char_switch.js');
   const removeChars = require('./remove_chars_from_string.js');
 
@@ -28,17 +27,6 @@ function convertTextToJson(text, sliceWord, name, searchString) {
   // define the return productName
   let fullProductName = '';
 
-  const searchWords = searchString.split(' ');
-  // Take that the last word of a string is a brand, make it uppercase
-  // as in results brands are uppercase
-  let brand;
-
-  if (searchWords.length < 2) {
-    brand = '';
-  } else {
-    brand = searchWords.pop().toUpperCase();
-  }
-
   let counter = 0;
 
   for (let line = 0; line < lines.length; line++) {
@@ -48,7 +36,7 @@ function convertTextToJson(text, sliceWord, name, searchString) {
     }
 
     // check if required line with name/title also contains the needed brand
-    if (lines[line].includes(name) && lines[line].includes(brand)) {
+    if (lines[line].includes(name)) {
       productName = lines[line]
         .slice(lines[line].indexOf(sliceWord) + sliceWord.length)
         .trim();
