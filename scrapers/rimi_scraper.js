@@ -47,11 +47,6 @@ async function rimiScraper(searchTerms) {
       searchTerms.toString()
     );
 
-    // for (let product of rimiJson.products) {
-    //   console.log('===');
-    //   console.log(`${product.name} \n kaina ${product.price} eur.`);
-    // }
-
     return rimiJson;
   } catch (error) {
     console.error('Error:', error);
