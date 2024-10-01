@@ -10,6 +10,6 @@ async function getTopSearches() {
 
   console.log(response);
 
-  return getTopSearches;
+  return response;
 }
 module.exports = getTopSearches;

@@ -11,6 +11,6 @@ const searchModelSchema = new mongoose.Schema({
   },
 });
 
-const searchModel = mongoose.model('Price-it', searchModelSchema, 'searches');
+const searchModel = mongoose.model('searches', searchModelSchema);
 
 module.exports = searchModel;
