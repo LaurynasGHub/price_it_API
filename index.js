@@ -13,6 +13,7 @@ app.get('/', (req, res) => res.send('Express on Vercel'));
 
 //routes
 app.use('/scrapers', require('./routes/scraperGetter.routes'));
+app.use('/topSearches', require('./routes/topSearches.routes'));
 
 const connectDB = async () => {
   try {
