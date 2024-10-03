@@ -5,9 +5,7 @@
 const barboraScraper = require('../scrapers/barbora_scraper');
 
 async function getBarboraScraperResults(params) {
-  console.log(' > Barbora Scraper Results');
-
-  console.log(` >> Search params- ${params}`);
+  console.log(' > Barbora Scraper');
 
   const scraperResult = await barboraScraper([params]);
 
