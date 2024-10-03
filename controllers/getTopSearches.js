@@ -8,8 +8,6 @@ async function getTopSearches() {
 
   const response = await searchModel.find();
 
-  console.log(response);
-
   return response;
 }
 module.exports = getTopSearches;
