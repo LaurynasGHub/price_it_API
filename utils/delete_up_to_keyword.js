@@ -1,11 +1,10 @@
-//
-// function gets the remaining text from a text file after the specified
-// word. Input text file and word, the function finds that word and
-// returns the whole text after that word.
-//
-const fs = require('fs');
+/**
+ * Function returns the text after the keyword.
+ * @param {string} text - text from which to delete unnecessary text.
+ * @param {string} keyword - deletes text up to the keyword.
+ * @returns {string}
+ */
 
-// Function to delete content up to a specific keyword in a string
 function deleteUpToKeyword(text, keyword) {
   const keywordIndex = text.indexOf(keyword);
 

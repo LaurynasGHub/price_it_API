@@ -6,6 +6,10 @@
 
 Calls all scrapers using searchTerm value (XX) and returns JSON format file with results.
 
+### GET /topSearches/results
+
+Gets search frequencies from server, sorts the result and returns top 5 searches.
+
 ## TODO
 
 ### Add key to API request so the user could be validated

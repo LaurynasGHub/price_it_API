@@ -4,7 +4,7 @@ const {
   getRimiScraperResults,
   getLastMileScraperResults,
 } = require('../controllers/index');
-// const rimiScraper = require('../scrapers/rimi_scraper');
+const addSearch = require('../controllers/addSearch');
 
 const router = Router();
 
@@ -12,10 +12,13 @@ const router = Router();
 // Get scraper results
 router.get('/results', async (req, res) => {
   try {
-    const searchTerm = req.query.searchTerm; // extract the search term from the query parameters
+    // extract the search term from the query parameters
+    const searchTerm = req.query.searchTerm;
     if (!searchTerm) {
       return res.status(400).json({ error: 'Search term is required' });
     }
+
+    addSearch(req.query.searchTerm);
 
     let returnJson = {};
     // Barbora scraper
