@@ -13,7 +13,7 @@ router.get('/results', async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 });
-
+// route was used to test frequency update in database
 router.post('/results', async (req, res) => {
   try {
     const response = await addSearch(req.body);

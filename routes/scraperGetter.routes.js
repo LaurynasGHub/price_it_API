@@ -17,7 +17,7 @@ router.get('/results', async (req, res) => {
     if (!searchTerm) {
       return res.status(400).json({ error: 'Search term is required' });
     }
-
+    // update search term frequency in the database
     addSearch(req.query.searchTerm);
 
     let returnJson = {};
