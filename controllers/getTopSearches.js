@@ -1,6 +1,7 @@
-//
-// Function gets top search results from server.
-//
+/**
+ * Gets top search results from the server.
+ * @returns {JSON}
+ */
 const searchModel = require('../models/searchModel.js');
 
 async function getTopSearches() {
@@ -12,8 +13,8 @@ async function getTopSearches() {
     (a, b) => b.searchFrequency - a.searchFrequency
   );
 
-  console.log(sortedResponse.slice(0, 5));
+  const returnResponse = sortedResponse.slice(0, 5);
 
-  return response;
+  return returnResponse;
 }
 module.exports = getTopSearches;
