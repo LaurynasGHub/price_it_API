@@ -5,22 +5,15 @@
  */
 
 async function barboraScraper(searchTerms) {
-  console.log(' > Barbora scraper');
-
   //shop URL
   const fetchUrl =
     'https://www.barbora.lt/api/eshop/v1/analyticsearch/query?&limit=5&query=';
 
   //combine everything to one string
   const fullFetchUrl = `${fetchUrl}${searchTerms}`;
-  console.log(` >> fullFetchUrl- ${fullFetchUrl}`);
 
   try {
-    console.log(' >> Fetching data...');
-
     const response = await fetch(fullFetchUrl);
-
-    console.log(' >> Fetch completed!');
 
     if (!response.ok) {
       throw new Error(` > HTTP error! Status: ${response.status}`);
@@ -47,5 +40,3 @@ async function barboraScraper(searchTerms) {
 }
 
 module.exports = barboraScraper;
-// export { barboraScraper };
-// barboraScraper(['pienas']);

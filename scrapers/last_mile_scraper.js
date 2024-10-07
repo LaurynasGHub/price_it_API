@@ -9,14 +9,10 @@
  */
 
 async function lastMileScraper(searchTerms) {
-  console.log(' > Last Mile scraper');
-
   //   shop URL
   const fetchUrl = 'https://search-dvbpbqktxq-lz.a.run.app/view_products';
 
   try {
-    console.log(' >> Fetching data...');
-
     const response = await fetch(fetchUrl, {
       method: 'POST',
       headers: {
@@ -43,8 +39,6 @@ async function lastMileScraper(searchTerms) {
       }),
     });
 
-    console.log(' >> Fetch completed!');
-
     const result = await response.json();
 
     let returnJson = { products: [] };
@@ -66,4 +60,3 @@ async function lastMileScraper(searchTerms) {
 }
 
 module.exports = lastMileScraper;
-// lastMileScraper('');

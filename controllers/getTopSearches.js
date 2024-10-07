@@ -5,8 +5,6 @@
 const searchModel = require('../models/searchModel.js');
 
 async function getTopSearches() {
-  console.log(' > Get top searches');
-
   const response = await searchModel.find();
 
   const sortedResponse = response.sort(

@@ -5,8 +5,6 @@
 const rimiScraper = require('../scrapers/rimi_scraper');
 
 async function getRimiScraperResults(params) {
-  console.log(' > Rimi Scraper');
-
   const scraperResult = await rimiScraper([params]);
 
   return scraperResult;

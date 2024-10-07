@@ -14,25 +14,26 @@ const {
 const mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
 
 async function mainItemsCartPrice() {
-  console.log(' > Main items cart price');
-
   const returnJson = {};
 
   // get product prices from each shop and add them to returnJson
   // rimi results
   const rimiData = await calculateCartPrice('rimi', getRimiScraperResults);
+
   returnJson['rimi'] = rimiData['rimi'];
-  // barbora results
+
   const barboraData = await calculateCartPrice(
     'barbora',
     getBarboraScraperResults
   );
+
   returnJson['barbora'] = barboraData['barbora'];
-  // last mile results
+
   const lastMileData = await calculateCartPrice(
     'lastMile',
     getLastMileScraperResults
   );
+
   returnJson['lastMile'] = lastMileData['lastMile'];
 
   return returnJson;

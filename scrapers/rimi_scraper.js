@@ -11,8 +11,6 @@
  */
 
 async function rimiScraper(searchTerms) {
-  console.log(' > Rimi scraper');
-
   const deleteUpToKeyword = require('../utils/delete_up_to_keyword');
   const convertTextToJson = require('../utils/convert_text_to_json');
 
@@ -20,14 +18,10 @@ async function rimiScraper(searchTerms) {
 
   // Combine search terms and URL in to one string
   const fullFetchUrl = `${fetchUrl}${searchTerms}`;
-  console.log(` >> fullFetchUrl: ${fullFetchUrl}`);
 
   try {
-    console.log(' >> Fetching data...');
     // get the response from rimi e-shop
     const response = await fetch(fullFetchUrl);
-
-    console.log(' >> Fetch completed!');
 
     if (!response.ok) {
       throw new Error(` > HTTP error! Status: ${response.status}`);
@@ -50,5 +44,3 @@ async function rimiScraper(searchTerms) {
 }
 
 module.exports = rimiScraper;
-// Call the function to test
-// rimiScraper(['duona']);
