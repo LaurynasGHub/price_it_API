@@ -1,7 +1,6 @@
 /**
  * Function calculates the cost of main food items cart at specified shop.
- * @param {string} shop - name of the shop.
- * @returns {JSON} - prices of the carts in each shop.
+ * @returns {JSON} - prices of the cart items in each shop.
  */
 
 const {
@@ -13,7 +12,7 @@ const {
 // array that contains main food items to search.
 const mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
 
-async function mainItemsCartPrice() {
+async function mainItemsPrices() {
   const returnJson = {};
 
   // get product prices from each shop and add them to returnJson
@@ -66,4 +65,4 @@ async function calculateCartPrice(shop, scraper) {
   return returnJson;
 }
 
-module.exports = mainItemsCartPrice;
+module.exports = mainItemsPrices;

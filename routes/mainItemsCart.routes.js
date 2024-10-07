@@ -1,11 +1,11 @@
 const { Router } = require('express');
-const mainItemsCartPrice = require('../controllers/mainItemsCartPrice');
+const mainItemsPrices = require('../controllers/mainItemsCartPrice');
 
 const router = Router();
 
 router.get('/results', async (req, res) => {
   try {
-    const response = await mainItemsCartPrice();
+    const response = await mainItemsPrices();
 
     res.json(response);
   } catch (error) {
