@@ -21,6 +21,21 @@ async function mainItemsCartPrice() {
   // get product prices from each shop and add them to returnJson
   // rimi results
   const rimiData = await calculateCartPrice('rimi', getRimiScraperResults);
+  returnJson['rimi'] = rimiData['rimi'];
+  // barbora results
+  const barboraData = await calculateCartPrice(
+    'barbora',
+    getBarboraScraperResults
+  );
+  returnJson['barbora'] = barboraData['barbora'];
+  // last mile results
+  const lastMileData = await calculateCartPrice(
+    'lastMile',
+    getLastMileScraperResults
+  );
+  returnJson['lastMile'] = lastMileData['lastMile'];
+
+  return returnJson;
 }
 
 async function calculateCartPrice(shop, scraper) {
@@ -50,6 +65,4 @@ async function calculateCartPrice(shop, scraper) {
   return returnJson;
 }
 
-mainItemsCartPrice('rimi');
-
-// module.exports = mainItemsCartPrice;
+module.exports = mainItemsCartPrice;
