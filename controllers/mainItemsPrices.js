@@ -16,14 +16,12 @@ async function mainItemsPrices() {
   const returnJson = {};
 
   // get product prices from each shop and add them to returnJson
-  // rimi results
+
   const rimiData = await itemPrices('rimi', getRimiScraperResults);
-  console.log(rimiData);
 
   returnJson['rimi'] = rimiData['rimi'];
 
   const barboraData = await itemPrices('barbora', getBarboraScraperResults);
-  console.log(barboraData);
 
   returnJson['barbora'] = barboraData['barbora'];
 
