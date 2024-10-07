@@ -1,5 +1,5 @@
 /**
- * Function calculates the cost of main food items cart at specified shop.
+ * Function calculates the cost of main food items at specified shop.
  * @returns {JSON} - prices of the cart items in each shop.
  */
 
@@ -7,7 +7,7 @@ const {
   getBarboraScraperResults,
   getRimiScraperResults,
   getLastMileScraperResults,
-} = require('../controllers/index');
+} = require('./index');
 
 // array that contains main food items to search.
 const mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
@@ -17,28 +17,22 @@ async function mainItemsPrices() {
 
   // get product prices from each shop and add them to returnJson
   // rimi results
-  const rimiData = await calculateCartPrice('rimi', getRimiScraperResults);
+  const rimiData = await itemPrices('rimi', getRimiScraperResults);
 
   returnJson['rimi'] = rimiData['rimi'];
 
-  const barboraData = await calculateCartPrice(
-    'barbora',
-    getBarboraScraperResults
-  );
+  const barboraData = await itemPrices('barbora', getBarboraScraperResults);
 
   returnJson['barbora'] = barboraData['barbora'];
 
-  const lastMileData = await calculateCartPrice(
-    'lastMile',
-    getLastMileScraperResults
-  );
+  const lastMileData = await itemPrices('lastMile', getLastMileScraperResults);
 
   returnJson['lastMile'] = lastMileData['lastMile'];
 
   return returnJson;
 }
 
-async function calculateCartPrice(shop, scraper) {
+async function itemPrices(shop, scraper) {
   let returnJson = { [shop]: [] };
 
   const promises = mainFoodItems.map(async (element) => {
