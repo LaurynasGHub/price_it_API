@@ -8,7 +8,11 @@ Calls all scrapers using searchTerm value (XX) and returns JSON format file with
 
 ### GET /topSearches/results
 
-Gets search frequencies from server, sorts the result and returns top 5 searches.
+Gets search frequencies from server, sorts the result and returns top 5 searches. Returns array.
+
+### GET /mainItemsCart/results
+
+Gets main items prices from each of the shops. Returns JSON with each shops products prices.
 
 ## TODO
 
