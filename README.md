@@ -10,9 +10,13 @@ Calls all scrapers using searchTerm value (XX) and returns JSON format file with
 
 Gets search frequencies from server, sorts the result and returns top 5 searches. Returns array.
 
-### GET /mainItemsCart/results
+### GET /mainItems/products/results
 
 Gets main items prices from each of the shops. Returns JSON with each shops products prices.
+
+### GET /mainItems/cart/results
+
+Gets main items cart prices results from each of the shops. Returns JSON with each shops cart price.
 
 ## TODO
 
@@ -24,4 +28,6 @@ Add login? If user is logged in then the request is possible?
 
 ### (Possible future update):
 
-Make search size as parameter and adjustable. Right now Barbora scraper returns 5 results, Rimi scraper returns about 15. This should be if not changeable, atleast identical. ✅ Completed!
+Right now Barbora scraper returns 5 results, Rimi scraper returns about 15. This should be if not changeable, atleast identical. ✅ Completed!
+
+Make search size as parameter and adjustable.

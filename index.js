@@ -8,13 +8,14 @@ const app = express();
 const PORT = 3000;
 
 app.use(cors());
+
 app.use(express.json());
 app.get('/', (req, res) => res.send('Express on Vercel'));
 
 //routes
 app.use('/scrapers', require('./routes/scraperGetter.routes'));
 app.use('/topSearches', require('./routes/topSearches.routes'));
-app.use('/mainItemsCart', require('./routes/mainItemsCart.routes'));
+app.use('/mainItems', require('./routes/mainItemsCart.routes'));
 
 const connectDB = async () => {
   try {
