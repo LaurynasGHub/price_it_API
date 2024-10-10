@@ -4,4 +4,6 @@ module.exports = {
   getLastMileScraperResults: require('./getLastMileScraperResults'),
   getTopSearches: require('./getTopSearches'),
   addSearch: require('./addSearch'),
+  registerUser: require('./registerUser'),
+  logInUser: require('./logInUser'),
 };
