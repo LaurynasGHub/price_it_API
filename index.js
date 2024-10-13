@@ -16,6 +16,8 @@ app.get('/', (req, res) => res.send('Express on Vercel'));
 app.use('/scrapers', require('./routes/scraperGetter.routes'));
 app.use('/topSearches', require('./routes/topSearches.routes'));
 app.use('/mainItems', require('./routes/mainItemsCart.routes'));
+app.use('/user', require('./routes/user.routes'));
+app.use('/options', require('./routes/options.routes'));
 
 const connectDB = async () => {
   try {
