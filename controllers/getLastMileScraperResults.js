@@ -5,7 +5,7 @@
 const lastMileScraper = require('../scrapers/last_mile_scraper');
 
 async function getLastMileScraperResults(params) {
-  const scraperResult = await lastMileScraper([params]);
+  const scraperResult = lastMileScraper([params]);
 
   return scraperResult;
 }
