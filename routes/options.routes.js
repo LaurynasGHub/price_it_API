@@ -1,11 +1,8 @@
 const { Router } = require('express');
 const { createProfileOptions, getProfileOptions } = require('../controllers');
-const { get } = require('mongoose');
-const { create } = require('../models/searchModel');
 
 const router = Router();
 
-// POST /user
 router.get('/', async (req, res) => {
   try {
     const data = await getProfileOptions(req.body);
@@ -15,8 +12,6 @@ router.get('/', async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 });
-
-// POST /user/login
 
 router.post('/create', async (req, res) => {
   try {
