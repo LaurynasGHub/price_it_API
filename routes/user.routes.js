@@ -4,7 +4,7 @@ const { registerUser, logInUser } = require('../controllers');
 const router = Router();
 
 // POST /user
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
   try {
     const data = await registerUser(req.body);
     res.status(201).json(data);
