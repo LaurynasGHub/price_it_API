@@ -3,7 +3,7 @@ const { registerUser, logInUser } = require('../controllers');
 
 const router = Router();
 
-// POST /user
+// POST /user/register
 router.post('/register', async (req, res) => {
   try {
     const data = await registerUser(req.body);
@@ -15,7 +15,6 @@ router.post('/register', async (req, res) => {
 });
 
 // POST /user/login
-
 router.post('/login', async (req, res) => {
   try {
     const data = await logInUser(req.body);
