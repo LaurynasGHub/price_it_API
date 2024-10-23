@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { registerUser, logInUser } = require('../controllers');
+const { registerUser, logInUser, getUserName } = require('../controllers');
 
 const router = Router();
 
@@ -18,6 +18,17 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const data = await logInUser(req.body);
+    res.status(201).json(data);
+  } catch (error) {
+    console.log(`Error: ${error.message}`);
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// GET /user/:id
+router.get('/username', async (req, res) => {
+  try {
+    const data = await getUserName(req.query.id);
     res.status(201).json(data);
   } catch (error) {
     console.log(`Error: ${error.message}`);

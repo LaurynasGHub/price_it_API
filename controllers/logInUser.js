@@ -19,9 +19,7 @@ async function logInUser({ username, password }) {
     expiresIn: '2s',
   });
 
-  console.log('logged in');
-
-  //grazinam userId arba token
+  // return userID
   return findUser._id;
   // return { token };
 }

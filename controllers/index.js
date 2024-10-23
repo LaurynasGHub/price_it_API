@@ -1,3 +1,5 @@
+const getUserName = require('./getUserName');
+
 module.exports = {
   getBarboraScraperResults: require('./getBarboraScraperResults'),
   getRimiScraperResults: require('./getRimiScraperResults'),
@@ -8,4 +10,5 @@ module.exports = {
   logInUser: require('./logInUser'),
   createProfileOptions: require('./createProfileOptions'),
   getProfileOptions: require('./getProfileOptions'),
+  getUserName: require('./getUserName'),
 };

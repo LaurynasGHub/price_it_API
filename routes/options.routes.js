@@ -3,9 +3,9 @@ const { createProfileOptions, getProfileOptions } = require('../controllers');
 
 const router = Router();
 
-router.get('/:id', async (req, res) => {
+router.get('', async (req, res) => {
   try {
-    const data = await getProfileOptions(req.params.id);
+    const data = await getProfileOptions(req.query.id);
     res.status(201).json(data);
   } catch (error) {
     console.log(`Error: ${error.message}`);
