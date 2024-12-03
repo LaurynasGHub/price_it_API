@@ -20,6 +20,10 @@ Gets main items cart prices results from each of the shops. Returns JSON with ea
 
 ## TODO
 
+### createProfileOptions
+
+Add validation for creating user options - if the option already exists prevent it's creation
+
 ### Add key to API request so the user could be validated
 
 Need some security for API requests so it would be more secure and not anyone could make the request.
