@@ -1,3 +1,4 @@
+const deleteProfileOption = require('./deleteProfileOption');
 const getUserName = require('./getUserName');
 
 module.exports = {
@@ -10,5 +11,6 @@ module.exports = {
   logInUser: require('./logInUser'),
   createProfileOptions: require('./createProfileOptions'),
   getProfileOptions: require('./getProfileOptions'),
+  deleteProfileOption: require('./deleteProfileOption'),
   getUserName: require('./getUserName'),
 };
