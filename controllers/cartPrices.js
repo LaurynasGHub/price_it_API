@@ -7,30 +7,44 @@ const {
   getBarboraScraperResults,
   getRimiScraperResults,
   getLastMileScraperResults,
+  getProfileOptions,
 } = require('./index');
 
-// array that contains main food items to search.
-const mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
-
-async function mainItemsPrices() {
+async function mainItemsPrices(id) {
   const returnArr = [];
+
+  let mainFoodItems;
+
+  // array that contains main food items to search.
+  if (id === '') {
+    mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
+  } else {
+    mainFoodItemsObj = await getProfileOptions(id);
+    mainFoodItems = mainFoodItemsObj.mainProducts;
+  }
 
   // get product prices from each shop and add them to returnJson
   // rimi results
-  const rimiData = await calculateCartPrice('rimi', getRimiScraperResults);
+  const rimiData = await calculateCartPrice(
+    'rimi',
+    getRimiScraperResults,
+    mainFoodItems
+  );
 
   returnArr.push(rimiData);
 
   const barboraData = await calculateCartPrice(
     'barbora',
-    getBarboraScraperResults
+    getBarboraScraperResults,
+    mainFoodItems
   );
 
   returnArr.push(barboraData);
 
   const lastMileData = await calculateCartPrice(
     'lastMile',
-    getLastMileScraperResults
+    getLastMileScraperResults,
+    mainFoodItems
   );
 
   returnArr.push(lastMileData);
@@ -38,7 +52,7 @@ async function mainItemsPrices() {
   return returnArr;
 }
 
-async function calculateCartPrice(shop, scraper) {
+async function calculateCartPrice(shop, scraper, mainFoodItems) {
   let cartPrice = 0;
 
   const promises = mainFoodItems.map(async (element) => {

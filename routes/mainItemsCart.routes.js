@@ -17,7 +17,7 @@ router.get('/products/results', async (req, res) => {
 
 router.get('/cart/results', async (req, res) => {
   try {
-    const response = await cartPrices();
+    const response = await cartPrices(req.query.id);
 
     res.json(response);
   } catch (error) {
