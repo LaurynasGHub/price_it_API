@@ -7,7 +7,7 @@ router.get('/results', async (req, res) => {
   try {
     const response = await getTopSearches();
 
-    res.json(response);
+    res.status(200).json(response);
   } catch (error) {
     console.log('Error:', error.message);
     res.status(400).json({ error: error.message });
