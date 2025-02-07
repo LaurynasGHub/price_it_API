@@ -1,6 +1,3 @@
-const deleteProfileOption = require('./deleteProfileOption');
-const getUserName = require('./getUserName');
-
 module.exports = {
   getBarboraScraperResults: require('./getBarboraScraperResults'),
   getRimiScraperResults: require('./getRimiScraperResults'),
