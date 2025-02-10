@@ -1,16 +1,18 @@
 const { Router } = require('express');
+
 const {
   getBarboraScraperResults,
   getRimiScraperResults,
   getLastMileScraperResults,
+  getVynotekaScraperResults,
+  addSearch,
 } = require('../controllers/index');
-const addSearch = require('../controllers/addSearch');
 
 const router = Router();
 
 // GET /scrapers
-// Get scraper results
-router.get('/results', async (req, res) => {
+// Get shops scraper results
+router.get('/shops/results', async (req, res) => {
   try {
     // extract the search term from the query parameters
     const searchTerm = req.query.searchTerm;
@@ -33,6 +35,31 @@ router.get('/results', async (req, res) => {
     returnJson.rimi = rimiData;
 
     returnJson.lastMile = lastMileData;
+
+    res.json(returnJson);
+  } catch (error) {
+    console.log('Error:', error.message);
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Get alcohol shops scraper results
+router.get('/shops/alcohol/results', async (req, res) => {
+  try {
+    // extract the search term from the query parameters
+    const searchTerm = req.query.searchTerm;
+    if (!searchTerm) {
+      return res.status(400).json({ error: 'Search term is required' });
+    }
+    // update search term frequency in the database
+    // Alcohol shops diff db?
+    // addSearch(req.query.searchTerm);
+
+    let returnJson = {};
+    // Vynoteka scraper
+    const vynotekaData = await getVynotekaScraperResults(searchTerm);
+
+    returnJson.vynoteka = vynotekaData;
 
     res.json(returnJson);
   } catch (error) {

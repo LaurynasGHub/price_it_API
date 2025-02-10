@@ -2,6 +2,7 @@ module.exports = {
   getBarboraScraperResults: require('./getBarboraScraperResults'),
   getRimiScraperResults: require('./getRimiScraperResults'),
   getLastMileScraperResults: require('./getLastMileScraperResults'),
+  getVynotekaScraperResults: require('./getVynotekaScraperResults'),
   getTopSearches: require('./getTopSearches'),
   addSearch: require('./addSearch'),
   registerUser: require('./registerUser'),
@@ -10,4 +11,5 @@ module.exports = {
   getProfileOptions: require('./getProfileOptions'),
   deleteProfileOption: require('./deleteProfileOption'),
   getUserName: require('./getUserName'),
+  addSearch: require('./addSearch'),
 };
