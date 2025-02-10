@@ -33,8 +33,8 @@ async function rimiScraper(searchTerms) {
     // Perform the operation to get only the needed part
     const manResult = deleteUpToKeyword(result, 'currencyCode');
 
-    // convert the manResulted to JSON file that has the needed structure
-    const rimiJson = convertTextToJson(manResult, '": ', 'name');
+    // convert the manResult to JSON file that has the needed structure
+    const rimiJson = convertTextToJson(manResult, '": ', 'name', 'price');
 
     return rimiJson;
   } catch (error) {
