@@ -5,13 +5,14 @@
 //
 /**
  * Converts given text to JSON file format with the structure of 'name/title' and 'price'. Mainly works for Rimi scraper.
- * @param {string} sliceWord - represents from which part take the remaining JSON line.
+ * @param {string} sliceWord - string from which the remaining line is taken.
  * @param {string} text - text which to convert to JSON.
- * @param {string} name - 'name' or 'title' - which one is in return JSON.
+ * @param {string} name - how name is called in JSON object.
+ * @param {string} priceName - how price is called in JSON object.
  * @returns {JSON}
  */
 
-function convertTextToJson(text, sliceWord, name) {
+function convertTextToJson(text, sliceWord, name, priceName) {
   const unicodeCharSwitch = require('./unicode_char_switch.js');
   const removeChars = require('./remove_chars_from_string.js');
 
@@ -44,7 +45,7 @@ function convertTextToJson(text, sliceWord, name) {
       priceCheck = true;
     }
 
-    if (lines[line].includes('"price"') && priceCheck) {
+    if (lines[line].includes(priceName) && priceCheck) {
       productPrice = parseFloat(
         lines[line].slice(lines[line].indexOf(sliceWord) + sliceWord.length)
       );
