@@ -8,11 +8,8 @@ async function createProfileOptions(params) {
   // console.log('\n', serverMainProducts[0].mainProducts, '\n');
   const iterProd = serverMainProducts[0].mainProducts;
 
-  if (iterProd.includes(params.product))
+  if (iterProd.includes(params.product)) {
     throw new Error('Option already exists');
-
-  for (i = 0; i < iterProd.length; i++) {
-    console.log(iterProd[i]);
   }
 
   serverMainProducts[0].mainProducts.push(params.product);
