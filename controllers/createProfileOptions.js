@@ -6,6 +6,14 @@ async function createProfileOptions(params) {
   const serverMainProducts = await Options.find({ userID: params.userID });
 
   // console.log('\n', serverMainProducts[0].mainProducts, '\n');
+  const iterProd = serverMainProducts[0].mainProducts;
+
+  if (iterProd.includes(params.product))
+    throw new Error('Option already exists');
+
+  for (i = 0; i < iterProd.length; i++) {
+    console.log(iterProd[i]);
+  }
 
   serverMainProducts[0].mainProducts.push(params.product);
 
@@ -22,4 +30,5 @@ async function createProfileOptions(params) {
   return newUserOptions;
 }
 
+// createProfileOptions('');
 module.exports = createProfileOptions;
