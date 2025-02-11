@@ -36,6 +36,6 @@ Create new and good documentation for API - paths, returns etc.
 
 ### (Possible future update):
 
-Right now Barbora scraper returns 5 results, Rimi scraper returns about 15. This should be if not changeable, atleast identical. ✅ Completed!
+Right now Barbora scraper returns 5 results, Rimi scraper returns about 15. This should be if not changeable, atleast identical. ✅
 
 Make search size as parameter and adjustable.
