@@ -20,10 +20,12 @@ async function mainItemsPrices(id) {
     mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
   } else {
     mainFoodItemsObj = await getProfileOptions(id);
-    mainFoodItems = mainFoodItemsObj.mainProducts;
+    if (mainFoodItemsObj === null) {
+      mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
+    }
   }
 
-  if (mainFoodItems.length === 0) {
+  if (mainFoodItems.length < 1) {
     mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
   }
 
@@ -74,7 +76,7 @@ async function calculateCartPrice(shop, scraper, mainFoodItems) {
 
       cartPrice += cheapestShopResult.price;
     } catch (error) {
-      console.error('Error:', error);
+      console.error('cartPrices.js Error:', error);
       return;
     }
   });

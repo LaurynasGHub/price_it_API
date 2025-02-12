@@ -56,7 +56,7 @@ async function itemPrices(shop, scraper) {
         },
       });
     } catch (error) {
-      console.error('Error:', error);
+      console.error('main ItemsPrices.js Error:', error);
       return;
     }
   });
