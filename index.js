@@ -17,8 +17,6 @@ app.use(
   })
 );
 
-app.options('*', cors()); // Handling pre-flight OPTIONS request globally
-
 app.use(express.json());
 app.get('/', (req, res) => res.send('Express on Vercel'));
 
