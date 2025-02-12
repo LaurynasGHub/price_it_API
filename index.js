@@ -5,6 +5,15 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+
+app.use(
+  cors({
+    origin: 'https://price-it.vercel.app', // Allow only your frontend to make requests
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allow additional headers if needed
+  })
+);
+
 const PORT = 3000;
 
 // app.use(
