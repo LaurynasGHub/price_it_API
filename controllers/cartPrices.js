@@ -20,10 +20,15 @@ async function mainItemsPrices(id) {
     mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
   } else {
     mainFoodItemsObj = await getProfileOptions(id);
+
     if (mainFoodItemsObj === null) {
       mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
+    } else {
+      mainFoodItems = mainFoodItemsObj.mainProducts;
     }
   }
+
+  console.log(` >>> MAIN FOOD ITEMS <<<\n ${mainFoodItemsObj}`);
 
   if (mainFoodItems.length < 1) {
     mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
