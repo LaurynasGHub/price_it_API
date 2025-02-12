@@ -9,7 +9,7 @@ const PORT = 3000;
 
 app.use(
   cors({
-    origin: 'https://price-it.vercel.app',
+    origin: 'https://price-it.vercel.app/',
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
   })
