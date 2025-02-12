@@ -7,6 +7,8 @@ require('dotenv').config();
 const app = express();
 const PORT = 3000;
 
+app.options('*', cors()); // Handling pre-flight OPTIONS request globally
+
 app.use(
   cors({
     origin: 'https://price-it.vercel.app',
@@ -14,6 +16,8 @@ app.use(
     allowedHeaders: ['Content-Type'],
   })
 );
+
+app.options('*', cors()); // Handling pre-flight OPTIONS request globally
 
 app.use(express.json());
 app.get('/', (req, res) => res.send('Express on Vercel'));
