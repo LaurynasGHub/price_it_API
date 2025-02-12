@@ -13,7 +13,7 @@ router.get('', async (req, res) => {
     const data = await getProfileOptions(req.query.id);
     res.status(201).json(data);
   } catch (error) {
-    console.log(`Error: ${error.message}`);
+    console.log(`options.routes.js get Error: ${error.message}`);
     res.status(400).json({ error: error.message });
   }
 });
@@ -23,7 +23,7 @@ router.post('/create', async (req, res) => {
     const data = await createProfileOptions(req.body);
     res.status(201).json(data);
   } catch (error) {
-    console.log(`Error: ${error.message}`);
+    console.log(`options.routes.js post Error: ${error.message}`);
     res.status(400).json({ error: error.message });
   }
 });
@@ -33,7 +33,7 @@ router.post('/delete', async (req, res) => {
     const data = await deleteProfileOption(req.body);
     res.status(201).json(data);
   } catch (error) {
-    console.log(`Error: ${error.message}`);
+    console.log(`options.routes.js delete Error: ${error.message}`);
     res.status(400).json({ error: error.message });
   }
 });

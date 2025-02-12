@@ -7,7 +7,13 @@ require('dotenv').config();
 const app = express();
 const PORT = 3000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://price-it.vercel.app',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
+  })
+);
 
 app.use(express.json());
 app.get('/', (req, res) => res.send('Express on Vercel'));
@@ -25,7 +31,7 @@ const connectDB = async () => {
 
     console.log('Database connected');
   } catch (err) {
-    console.log('Error:', err.message);
+    console.log('index.js Error:', err.message);
   }
 };
 
