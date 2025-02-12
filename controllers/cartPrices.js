@@ -23,6 +23,10 @@ async function mainItemsPrices(id) {
     mainFoodItems = mainFoodItemsObj.mainProducts;
   }
 
+  if (mainFoodItems.length === 0) {
+    mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
+  }
+
   // get product prices from each shop and add them to returnJson
   // rimi results
   const rimiData = await calculateCartPrice(
