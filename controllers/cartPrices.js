@@ -15,12 +15,14 @@ async function mainItemsPrices(id) {
 
   let mainFoodItems;
 
-  // array that contains main food items to search.
+  // if userId is not provided (no user is logged in)
+  // default to default items
   if (id === '') {
     mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
   } else {
     mainFoodItemsObj = await getProfileOptions(id);
-
+    // if profile options are not present(user just registered)
+    // default to default items
     if (mainFoodItemsObj === null) {
       mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
     } else {
@@ -28,8 +30,7 @@ async function mainItemsPrices(id) {
     }
   }
 
-  console.log(` >>> MAIN FOOD ITEMS <<<\n ${mainFoodItemsObj}`);
-
+  // if options exist, but there are less than 1 default to default
   if (mainFoodItems.length < 1) {
     mainFoodItems = ['pienas', 'duona', 'suris', 'sviestas', 'desra'];
   }
