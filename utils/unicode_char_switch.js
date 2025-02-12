@@ -21,6 +21,14 @@ function unicodeCharSwitch(text) {
     '\\u0161': 'š',
     '\\u017d': 'Ž',
     '\\u017e': 'ž',
+    '\\u00c4': 'Ä',
+    '\\u00e4': 'ä',
+    '\\u00d6': 'Ö',
+    '\\u00f6': 'ö',
+    '\\u00dc': 'Ü',
+    '\\u00fc': 'ü',
+    '\\u00df': 'ß',
+    '\\u1e9e': 'ẞ',
   };
 
   return text.replace(
