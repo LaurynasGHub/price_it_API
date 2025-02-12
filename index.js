@@ -7,13 +7,15 @@ require('dotenv').config();
 const app = express();
 const PORT = 3000;
 
-app.use(
-  cors({
-    origin: 'https://price-it.vercel.app/',
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
-  })
-);
+// app.use(
+//   cors({
+//     origin: 'https://price-it.vercel.app/',
+//     methods: ['GET', 'POST'],
+//     allowedHeaders: ['Content-Type'],
+//   })
+// );
+
+app.use(cors());
 
 app.use(express.json());
 app.get('/', (req, res) => res.send('Express on Vercel'));
@@ -37,6 +39,6 @@ const connectDB = async () => {
 
 connectDB();
 
-app.listen(PORT, () => {
-  console.log(`Server started at http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server started at http://localhost:${PORT}`);
+// });
