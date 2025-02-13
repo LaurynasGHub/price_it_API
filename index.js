@@ -19,7 +19,6 @@ app.use(
 );
 
 app.use(express.json());
-app.get('/', (req, res) => res.send('Express on Vercel'));
 
 //routes
 app.use('/scrapers', require('./routes/scraperGetter.routes'));
