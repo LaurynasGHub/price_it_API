@@ -1,6 +1,6 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 
 async function logInUser({ username, password }) {
   if (!username || !password)
@@ -15,9 +15,9 @@ async function logInUser({ username, password }) {
   if (!match) throw new Error('username or password is incorrect');
 
   //create token
-  const token = jwt.sign({ username }, process.env.JWT_SECRET, {
-    expiresIn: '2s',
-  });
+  // const token = jwt.sign({ username }, process.env.JWT_SECRET, {
+  //   expiresIn: '2s',
+  // });
 
   // return userID
   return findUser._id;
