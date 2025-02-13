@@ -27,6 +27,8 @@ app.use('/mainItems', require('./routes/mainItemsCart.routes'));
 app.use('/user', require('./routes/user.routes'));
 app.use('/options', require('./routes/options.routes'));
 
+// console.log(` >>> MONGO_DB_URI:\n${process.env.MONGO_DB_URI}\n`);
+
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_DB_URI);
