@@ -3,7 +3,7 @@ const Options = require('../models/optionsModel');
 async function createProfileOptions(params) {
   const serverMainProducts = await Options.find({ userID: params.userID });
 
-  console.log(`>>> Server main products\n ${serverMainProducts}`);
+  // console.log(`>>> Server main products\n ${serverMainProducts}`);
 
   if (serverMainProducts.length < 1) {
     const newMainProducts = [params.product];
