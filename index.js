@@ -12,7 +12,10 @@ app.options('*', cors()); // Handling pre-flight OPTIONS request globally
 
 app.use(
   cors({
-    origin: 'https://price-it.vercel.app',
+    // origin: 'https://price-it.vercel.app',
+    origin: ['https://price-it.vercel.app', 'http://localhost:3001'],
+    // allowedOrigins:
+
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
   })

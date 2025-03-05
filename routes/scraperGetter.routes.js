@@ -19,8 +19,6 @@ router.get('/shops/results', async (req, res) => {
     if (!searchTerm) {
       return res.status(400).json({ error: 'Search term is required' });
     }
-    // update search term frequency in the database
-    addSearch(req.query.searchTerm);
 
     let returnJson = {};
     // Barbora scraper
@@ -37,6 +35,14 @@ router.get('/shops/results', async (req, res) => {
     returnJson.lastMile = lastMileData;
 
     res.json(returnJson);
+    // check if json is not empty, if not-update search term frequency in the database
+    if (
+      returnJson.barbora.length > 0 ||
+      returnJson.rimi.length > 0 ||
+      returnJson.lastMile.length > 0
+    ) {
+      addSearch(req.query.searchTerm);
+    }
   } catch (error) {
     console.log('Error:', error.message);
     res.status(400).json({ error: error.message });
