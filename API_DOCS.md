@@ -8,7 +8,7 @@
 
 _Endpoint registers a new user, if it doesn't already exist._
 
-**<ins>POST /user/register</ins>**
+- **<ins>POST /user/register</ins>**
 
 - Request- { username, password };
 
