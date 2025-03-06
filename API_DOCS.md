@@ -35,7 +35,7 @@ If credentials are correct returns user id.
 
 _Endpoint gets username._<br>
 
-**_This endpoint needs checking, doesn't seem it is used anywhere_**
+**_This endpoint needs checking, doesn't seem it is used anywhere._**
 
 **<ins>GET /user/username?id=</ins>**
 
@@ -58,7 +58,6 @@ _Endpoint logs user in._
 If searchTerm is empty returns status 400 with error: 'Search term is required'.
 
 - Returns- data (JSON) with a structure of:<br>
-    <!-- prettier-ignore -->
   {<br>
   &nbsp;&nbsp;&nbsp;"barbora": {<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"products": [<br>
@@ -85,5 +84,6 @@ If searchTerm is empty returns status 400 with error: 'Search term is required'.
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
   &nbsp;&nbsp;&nbsp;}<br>
-  }<br>
-    <!-- prettier-ignore-end -->
+  };<br>
+
+  (data is example with a searchTerm 'Pienas').
