@@ -58,31 +58,32 @@ _Endpoint logs user in._
 If searchTerm is empty returns status 400 with error: 'Search term is required'.
 
 - Returns- data (JSON) with a structure of:<br>
-  <!-- prettier ignore -->
-  {
-  &nbsp;&nbsp;&nbsp;&nbsp;"barbora": {<br>
-  "products": [<br>
+    <!-- prettier-ignore -->
   {<br>
-  "name": "ŽEMAITIJOS pienas, 3,2 % rieb., 1 l",<br>
-  "price": 1.59<br>
+  &nbsp;&nbsp;&nbsp;"barbora": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"products": [<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "ŽEMAITIJOS pienas, 3,2 % rieb., 1 l",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": 1.59<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+  &nbsp;&nbsp;&nbsp;},<br>
+  &nbsp;&nbsp;&nbsp;"rimi": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"products": [<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Natūralus DVARO pienas, 3,5 % rieb., 1 l",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": 1.65<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+  &nbsp;&nbsp;&nbsp;},<br>
+  &nbsp;&nbsp;&nbsp;"lastMile": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"products": [<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Natūralus DVARO pienas, 3,5% rieb., 2 l",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": 3.09,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"priceWithDiscount": null<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+  &nbsp;&nbsp;&nbsp;}<br>
   }<br>
-  ]<br>
-  },<br>
-  "rimi": {<br>
-  "products": [<br>
-  {<br>
-  "name": "Natūralus DVARO pienas, 3,5 % rieb., 1 l",<br>
-  "price": 1.65<br>
-  }<br>
-  ]<br>
-  },<br>
-  "lastMile": {<br>
-  "products": [<br>
-  {<br>
-  "name": "Natūralus DVARO pienas, 3,5% rieb., 2 l",<br>
-  "price": 3.09,<br>
-  "priceWithDiscount": null<br>
-  }<br>
-  ]<br>
-  }<br>
-  }<br>
+    <!-- prettier-ignore-end -->
