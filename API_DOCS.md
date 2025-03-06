@@ -13,6 +13,6 @@ _Endpoint registers a new user, if it doesn't already exist._
 request- { username, password }
 
 returns- {<br>
-<nbsp>username<br>
-<nbsp>password<br>
+<space><space><space><space>username<br>
+<space><space><space><space>password<br>
 }
