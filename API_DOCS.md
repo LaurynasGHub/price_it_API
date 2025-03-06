@@ -4,7 +4,7 @@
 
 ## Endpoints
 
-### Register user
+### <ins>Register user</ins>
 
 _Endpoint registers a new user, if it doesn't already exist._
 
@@ -17,9 +17,9 @@ If user with the same username already exists, returns an error:
 
 - Returns- { username: username , password: password } (JSON);
 
-### Log in user
+### <ins>Log in user</ins>
 
-_Endpoint logs user in_
+_Endpoint logs user in._
 
 **<ins>POST /user/login</ins>**
 
@@ -31,9 +31,9 @@ If credentials are correct returns user id.
 
 - Returns- userID (string);
 
-### Get username
+### <ins>Get username</ins>
 
-_Endpoint gets username._
+_Endpoint gets username._<br>
 **_This endpoint needs checking, doesn't seem it is used anywhere_**
 
 **<ins>GET /user/username?id=</ins>**
