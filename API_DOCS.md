@@ -10,9 +10,9 @@ _Endpoint registers a new user, if it doesn't already exist._
 
 **POST /user/register**
 
-request- { username, password }
+request- { username, password };
 
-returns- {<br>
-<space><space><space><space>username<br>
-<space><space><space><space>password<br>
-}
+If user with the same username already exists, returns an error:
+'user already exists'
+
+returns- { username: username , password: password };
