@@ -34,6 +34,7 @@ If credentials are correct returns user id.
 ### <ins>Get username</ins>
 
 _Endpoint gets username._<br>
+
 **_This endpoint needs checking, doesn't seem it is used anywhere_**
 
 **<ins>GET /user/username?id=</ins>**
@@ -43,3 +44,5 @@ _Endpoint gets username._<br>
 If user with the specified id is not found returns an error: 'Can't find user with ID: id.
 
 - Returns- username (string);
+
+---
