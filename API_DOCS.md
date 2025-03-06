@@ -58,31 +58,31 @@ _Endpoint logs user in._
 If searchTerm is empty returns status 400 with error: 'Search term is required'.
 
 - Returns- data (JSON) with a structure of:<br>
-  {
-  ``````````"barbora": {
-  ``````"products": [
-  ``````{
-  `````````"name": "ŽEMAITIJOS pienas, 3,2 % rieb., 1 l",
-  `````````"price": 1.59
-  ``````}
-  ````]
-  ```},
-  "rimi": {
-  "products": [
-  {
-  "name": "Natūralus DVARO pienas, 3,5 % rieb., 1 l",
-  "price": 1.65
-  }
-  ]
-  },
-  "lastMile": {
-  "products": [
-  {
-  "name": "Natūralus DVARO pienas, 3,5% rieb., 2 l",
-  "price": 3.09,
-  "priceWithDiscount": null
-  }
-  ]
-  }
-  }
-  ``````````
+
+{
+"barbora": {
+"products": [
+{
+"name": "ŽEMAITIJOS pienas, 3,2 % rieb., 1 l",
+"price": 1.59
+}
+]
+},
+"rimi": {
+"products": [
+{
+"name": "Natūralus DVARO pienas, 3,5 % rieb., 1 l",
+"price": 1.65
+}
+]
+},
+"lastMile": {
+"products": [
+{
+"name": "Natūralus DVARO pienas, 3,5% rieb., 2 l",
+"price": 3.09,
+"priceWithDiscount": null
+}
+]
+}
+}
