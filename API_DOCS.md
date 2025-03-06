@@ -4,12 +4,15 @@
 
 ## Endpoints
 
-## User endpoints
-
 ### Register user
 
-Endpoint registers a new user, if it doesn't already exist.
+_Endpoint registers a new user, if it doesn't already exist._
 
-** POST /user/register **
+**POST /user/register**
 
 request- { username, password }
+
+returns- {
+<space>username
+<space>password
+}
