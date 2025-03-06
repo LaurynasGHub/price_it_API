@@ -39,10 +39,50 @@ _Endpoint gets username._<br>
 
 **<ins>GET /user/username?id=</ins>**
 
-- id - user id;
+- id - user id from the database;
 
 If user with the specified id is not found returns an error: 'Can't find user with ID: id.
 
 - Returns- username (string);
 
 ---
+
+### <ins>Get results from scrapers</ins>
+
+_Endpoint logs user in._
+
+**<ins>POST /scrapers/shops/results?searchTerm=</ins>**
+
+- searchTerm - product to search for in shops;
+
+If searchTerm is empty returns status 400 with error: 'Search term is required'.
+
+- Returns- data (JSON) with a structure of:<br>
+  {
+  ``````````"barbora": {
+  ``````"products": [
+  ``````{
+  `````````"name": "ŽEMAITIJOS pienas, 3,2 % rieb., 1 l",
+  `````````"price": 1.59
+  ``````}
+  ````]
+  ```},
+  "rimi": {
+  "products": [
+  {
+  "name": "Natūralus DVARO pienas, 3,5 % rieb., 1 l",
+  "price": 1.65
+  }
+  ]
+  },
+  "lastMile": {
+  "products": [
+  {
+  "name": "Natūralus DVARO pienas, 3,5% rieb., 2 l",
+  "price": 3.09,
+  "priceWithDiscount": null
+  }
+  ]
+  }
+  }
+  ``````````
