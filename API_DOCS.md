@@ -1,4 +1,4 @@
-# Price It API documentation
+# Price It API
 
 ## This API provides endpoints for getting scraper results, products and managing users for Price It webapp.
 
@@ -41,7 +41,7 @@ _Endpoint gets username._<br>
 
 - id - user id from the database;
 
-If user with the specified id is not found returns an error: 'Can't find user with ID: id.
+If user with the specified id is not found returns an error: 'Can't find user with ID: id'.
 
 - Returns- username (string);
 
