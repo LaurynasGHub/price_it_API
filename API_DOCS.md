@@ -49,7 +49,7 @@ If user with the specified id is not found returns an error: 'Can't find user wi
 
 ### <ins>Get results from scrapers</ins>
 
-_Endpoint logs user in._
+_Endpoint gets scraper results from food shops._
 
 **<ins>POST /scrapers/shops/results?searchTerm=</ins>**
 
@@ -87,3 +87,27 @@ If searchTerm is empty returns status 400 with error: 'Search term is required'.
   };<br>
 
   (data is example with a searchTerm 'Pienas').
+
+_Endpoint gets scraper results from alcohol shops._
+
+**<ins>POST /scrapers/shops/alcohol/results?searchTerm=</ins>**
+
+- searchTerm - product to search for in shops;
+
+If searchTerm is empty returns status 400 with error: 'Search term is required'.
+
+- Returns- data (JSON) with a structure of:<br>
+  {<br>
+  &nbsp;&nbsp;&nbsp;"vynoteka": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"products": [<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Dirty Duck Su kardamonu 0,5 L",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": 1.55<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+  &nbsp;&nbsp;&nbsp;},<br>
+  };<br>
+
+  (data is example with a searchTerm 'Alus').
+
+---
