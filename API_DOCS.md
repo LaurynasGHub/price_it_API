@@ -171,3 +171,11 @@ _Endpoint gets top searches results._
 ---
 
 ### **<ins>FAVORITE ITEMS CART endpoints</ins>**
+
+_Endpoint gets top searches results._
+
+**<ins>GET mainItems/cart/results?id=</ins>**
+
+- id- user id from the database, if no user id is provided, defaults to default items (default items are in cartPrices.js);
+
+- Returns- an array of shop name and price pairs- {shopName : cartPrice} (ARRAY);
