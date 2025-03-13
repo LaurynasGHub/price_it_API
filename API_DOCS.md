@@ -4,6 +4,8 @@
 
 ## Endpoints
 
+### **<ins>USER endpoints</ins>**
+
 ### <ins>Register user</ins>
 
 _Endpoint registers a new user, if it doesn't already exist._
@@ -46,6 +48,8 @@ If user with the specified id is not found returns an error: 'Can't find user wi
 - Returns- username (string);
 
 ---
+
+### **<ins>SCRAPER endpoints</ins>**
 
 ### <ins>Get results from scrapers</ins>
 
@@ -111,3 +115,59 @@ If searchTerm is empty returns status 400 with error: 'Search term is required'.
   (data is example with a searchTerm 'Alus').
 
 ---
+
+### **<ins>OPTIONS endpoints</ins>**
+
+_Endpoint gets users favorite items._
+
+**<ins>GET /options?id=</ins>**
+
+- id- user id;
+
+If user id is incorrect returns an error.
+
+- Returns- user options, an array with users favorite items (ARRAY);
+
+_Endpoint adds an item to users favorites._
+
+**<ins>POST /options/create</ins>**
+
+- request- { userID: userID, product: product };
+
+• userID- user id from the database;
+• product- favorite item that should be added;
+
+- Returns- user options, a modified array with users favorite items, with new item in it (ARRAY);
+
+_Endpoint deletes a favorite item._
+
+**<ins>POST /options/delete</ins>**
+
+- request- { userID: userID, product: product };
+
+• userID- user id from the database;
+• product- favorite item that should be deleted;
+
+- Returns- user options, a modified array with users favorite items, without the deleted item (ARRAY);
+
+---
+
+### **<ins>TOP SEARCHES endpoints</ins>**
+
+_Endpoint gets top searches results._
+
+**<ins>GET /results</ins>**
+
+- Returns- returns five most searched items (ARRAY);
+
+_Endpoint gets top searches results._
+
+**<ins>POST /results?searchTerm=</ins>**
+
+- searchTerm- search term to add to the most searched items database;
+
+- Returns- search term with updated search frequency- { searchTerm: searchTerm }, { searchFrequency: searchFrequency } (JSON);
+
+---
+
+### **<ins>FAVORITE ITEMS CART endpoints</ins>**
