@@ -1,5 +1,11 @@
 const { Router } = require('express');
 
+app.use(
+  cors({
+    origin: 'https://price-r4zh9kre7-laurynas-projects-5a794abc.vercel.app',
+  })
+);
+
 const {
   getBarboraScraperResults,
   getRimiScraperResults,
