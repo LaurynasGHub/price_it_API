@@ -29,10 +29,6 @@ app.use(express.json());
 
 //routes
 app.use('/scrapers', require('./routes/scraperGetter.routes'));
-app.use('/topSearches', require('./routes/topSearches.routes'));
-app.use('/mainItems', require('./routes/mainItemsCart.routes'));
-app.use('/user', require('./routes/user.routes'));
-app.use('/options', require('./routes/options.routes'));
 
 // console.log(` >>> MONGO_DB_URI:\n${process.env.MONGO_DB_URI}\n`);
 
