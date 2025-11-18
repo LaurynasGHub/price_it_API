@@ -16,24 +16,21 @@ async function rimiScraper(searchTerms) {
 
   const fetchUrl = 'https://www.rimi.lt/e-parduotuve/lt/paieska?query=';
 
-  // Combine search terms and URL in to one string
   const fullFetchUrl = `${fetchUrl}${searchTerms}`;
 
   try {
-    // get the response from rimi e-shop
     const response = await fetch(fullFetchUrl);
 
     if (!response.ok) {
-      throw new Error(` > HTTP error! Status: ${response.status}`);
+      console.error(` > Rimi HTTP error! Status: ${response.status}`);
+      // return empty JSON on error, don't throw to prevent breaking other scrapers
+      return { products: [] };
     }
 
-    // Take the result as text
     const result = await response.text();
 
-    // Perform the operation to get only the needed part
     const manResult = deleteUpToKeyword(result, 'currencyCode');
 
-    // convert the manResult to JSON file that has the needed structure
     const rimiJson = convertTextToJson(manResult, '": ', 'name', 'price');
 
     return rimiJson;

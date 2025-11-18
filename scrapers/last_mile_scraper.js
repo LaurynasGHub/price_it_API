@@ -9,7 +9,6 @@
  */
 
 async function lastMileScraper(searchTerms) {
-  //   shop URL
   const fetchUrl = 'https://search-dvbpbqktxq-lz.a.run.app/view_products';
 
   try {
@@ -38,6 +37,12 @@ async function lastMileScraper(searchTerms) {
         slim: true,
       }),
     });
+
+    if (!response.ok) {
+      console.error(` > Last Mile HTTP error! Status: ${response.status}`);
+      // return empty JSON on error, don't throw to prevent breaking other scrapers
+      return { products: [] };
+    }
 
     const result = await response.json();
 
