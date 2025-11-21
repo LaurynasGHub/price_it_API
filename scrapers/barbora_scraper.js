@@ -77,6 +77,6 @@ async function barboraScraper(searchTerms) {
   }
 }
 
-barboraScraper('pienas');
+// barboraScraper('pienas');
 // module.exports = barboraScraper;
 export default barboraScraper;
