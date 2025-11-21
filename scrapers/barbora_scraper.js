@@ -1,9 +1,3 @@
-// ...existing code...
-import fs from 'fs';
-
-// TODO
-// Rewrite this similar to rimi scraper
-
 /**
  * Function gets results from Barbora e-shop.
  * @param {string} searchTerms string of what to search.
