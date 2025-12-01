@@ -40,4 +40,5 @@ async function rimiScraper(searchTerms) {
   }
 }
 
+// rimiScraper('pienas');
 module.exports = rimiScraper;
