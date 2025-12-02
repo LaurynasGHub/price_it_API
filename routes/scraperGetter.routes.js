@@ -3,12 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-app.use(
-  cors({
-    origin: 'https://price-r4zh9kre7-laurynas-projects-5a794abc.vercel.app',
-  })
-);
-
 const {
   getBarboraScraperResults,
   getRimiScraperResults,

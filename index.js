@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
 
@@ -8,15 +7,14 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.options('*', cors()); // Handling pre-flight OPTIONS request globally
+app.options('*', cors());
 
 app.use(
   cors({
-    // origin: 'https://price-it.vercel.app',
-    origin: ['https://price-it.vercel.app', 'http://localhost:3001'],
     // allowedOrigins:
+    origin: ['https://price-it.vercel.app', 'http://localhost:3001'],
 
-    methods: ['GET', 'POST'],
+    methods: ['GET'],
     allowedHeaders: ['Content-Type'],
   })
 );
@@ -29,20 +27,6 @@ app.use(express.json());
 
 //routes
 app.use('/scrapers', require('./routes/scraperGetter.routes'));
-
-// console.log(` >>> MONGO_DB_URI:\n${process.env.MONGO_DB_URI}\n`);
-
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_DB_URI);
-
-    console.log('Database connected');
-  } catch (err) {
-    console.log('index.js Error:', err.message);
-  }
-};
-
-connectDB();
 
 app.listen(PORT, () => {
   console.log(`Server started at http://localhost:${PORT}`);
