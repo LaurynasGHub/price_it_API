@@ -21,7 +21,7 @@ router.get('/shops/results', async (req, res) => {
     if (!allowedOrigins.includes(req.headers.origin?.trim())) {
       console.log(
         ' >>> Blocked request to /shops/results.\n > Origin - ',
-        req.headers.origin
+        `${req.headers.origin}`
       );
       res.status(520).json({ error: 'Unknown error' });
       return;
