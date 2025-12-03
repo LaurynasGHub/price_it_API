@@ -18,7 +18,7 @@ router.get('/shops/results', async (req, res) => {
   try {
     const searchTerm = req.query.searchTerm;
 
-    if (!allowedOrigins.includes(req.headers.origin)) {
+    if (!allowedOrigins.includes(req.headers.origin?.trim())) {
       console.log(
         ' >>> Blocked request to /shops/results.\n > Origin - ',
         req.headers.origin
