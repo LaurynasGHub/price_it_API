@@ -48,6 +48,7 @@ router.get('/shops/results', async (req, res) => {
       '\n > Origin - ',
       req.headers.origin
     );
+
     res.json(returnJson);
   } catch (error) {
     console.log('Error:', error.message);
