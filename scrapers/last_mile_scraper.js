@@ -21,20 +21,7 @@ async function lastMileScraper(searchTerms) {
         limit: 5,
         query: {
           text: `${searchTerms}`,
-          languageCode: 'en',
         },
-        params: {
-          type: 'view_products',
-          isActive: true,
-          isApproved: true,
-          chainIds: ['CvKfTzV4TN5U8BTMF1Hl'],
-          storeIds: [],
-          isUsingStockByChainId: {
-            CvKfTzV4TN5U8BTMF1Hl: true,
-          },
-        },
-        fromIndex: 0,
-        slim: true,
       }),
     });
 
@@ -65,3 +52,4 @@ async function lastMileScraper(searchTerms) {
 }
 
 module.exports = lastMileScraper;
+// lastMileScraper('monster');

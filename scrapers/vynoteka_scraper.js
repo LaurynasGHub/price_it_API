@@ -4,15 +4,10 @@
  * @returns {JSON}
  */
 
-const convertTextToJson = require('../utils/convert_text_to_json');
-
 async function vynotekaScraper(searchTerms) {
-  const fs = require('fs');
-  const deleteUpToKeyword = require('../utils/delete_up_to_keyword');
   //shop URL
   const fetchUrl = 'https://vynoteka.lt/lt/api/product/search?query=';
 
-  //combine everything to one string
   const fullFetchUrl = `${fetchUrl}${searchTerms}`;
 
   try {
@@ -24,17 +19,16 @@ async function vynotekaScraper(searchTerms) {
 
     const result = await response.json();
 
-    const resultTxt = JSON.stringify(result, null, 2); // Format JSON nicely
+    let returnJSON = { products: [] };
 
-    const manText = deleteUpToKeyword(resultTxt, '"list"');
+    for (let i = 0; i < 5; i++) {
+      let pushProduct = {
+        name: result.list[i].label,
+        price: result.list[i].p.pr,
+      };
 
-    const returnJSON = convertTextToJson(manText, '": ', '"label"', ' "pr"');
-
-    // fs.writeFileSync(
-    //   'vynoteka_scraper.txt',
-    //   JSON.stringify(returnJSON, null, 2),
-    //   'utf8'
-    // );
+      returnJSON.products.push(pushProduct);
+    }
 
     return returnJSON;
   } catch (error) {
