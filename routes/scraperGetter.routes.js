@@ -1,6 +1,8 @@
 const { Router } = require('express');
 
-const allowedOrigins = require('../allowedOrigins.json');
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',').map((origin) => origin.trim())
+  : [];
 
 const {
   getBarboraScraperResults,
@@ -17,7 +19,12 @@ router.get('/shops/results', async (req, res) => {
     const searchTerm = req.query.searchTerm;
 
     if (!allowedOrigins.includes(req.headers.origin)) {
-      return res.status(520).json({ error: 'Unknown error' });
+      console.log(
+        ' >>> Blocked request to /shops/results.\n > Origin - ',
+        req.headers.origin
+      );
+      res.status(520).json({ error: 'Unknown error' });
+      return;
     }
 
     if (!searchTerm) {
@@ -34,6 +41,13 @@ router.get('/shops/results', async (req, res) => {
     returnJson.barbora = barboraData;
     returnJson.rimi = rimiData;
     returnJson.lastMile = lastMileData;
+
+    console.log(
+      ' >>> Successful request to /shops/results.\n > SearchTerm - ',
+      searchTerm,
+      '\n > Origin - ',
+      req.headers.origin
+    );
 
     res.json(returnJson);
   } catch (error) {

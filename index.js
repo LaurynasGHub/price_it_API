@@ -29,5 +29,5 @@ app.use(express.json());
 app.use('/scrapers', require('./routes/scraperGetter.routes'));
 
 app.listen(PORT, () => {
-  console.log(`Server started at http://localhost:${PORT}`);
+  console.log(`Server started at http://localhost:${PORT}\n`);
 });
