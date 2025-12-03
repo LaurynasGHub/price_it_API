@@ -8,17 +8,29 @@ const {
   getRimiScraperResults,
   getLastMileScraperResults,
   getVynotekaScraperResults,
-  addSearch,
 } = require('../controllers/index');
 
 const router = Router();
 
-// GET /scrapers
 // Get shops scraper results
 router.get('/shops/results', async (req, res) => {
   try {
     // extract the search term from the query parameters
     const searchTerm = req.query.searchTerm;
+
+    // allowed origins
+    const allowedOrigins = [
+      'https://price-it.vercel.app',
+      'http://localhost:3001',
+    ];
+
+    const origin = req.headers.origin;
+    console.log('Origin:', origin);
+
+    if (!allowedOrigins.includes(origin)) {
+      return res.status(520).json({ error: 'Unknown error' });
+    }
+
     if (!searchTerm) {
       return res.status(400).json({ error: 'Search term is required' });
     }
