@@ -7,12 +7,16 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',').map((origin) => origin.trim())
+  : [];
+
 app.options('*', cors());
 
 app.use(
   cors({
     // allowedOrigins:
-    origin: ['https://price-it.vercel.app', 'http://localhost:3001'],
+    origin: allowedOrigins,
 
     methods: ['GET'],
     allowedHeaders: ['Content-Type'],
